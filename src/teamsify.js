@@ -82,7 +82,7 @@ const extractBugfixes = (tree) => {
     }
   }
 
-  return toMarkdown({ type: 'root', children: [bugfixesTree] }, mdOptions)
+  return bugfixesTree.length > 0 ? toMarkdown({ type: 'root', children: [bugfixesTree] }, mdOptions) : undefined
 }
 
 /**
@@ -114,7 +114,7 @@ const extractFeatures = (tree) => {
     }
   }
 
-  return toMarkdown({ type: 'root', children: [featuresTree] }, mdOptions)
+  return featuresTree.length > 0 ? toMarkdown({ type: 'root', children: [featuresTree] }, mdOptions) : undefined
 }
 
 /**
@@ -142,7 +142,7 @@ const extractBreaking = (tree) => {
     }
   }
 
-  return toMarkdown({ type: 'root', children: [breakingTree] }, mdOptions)
+  return breakingTree.length > 0 ? toMarkdown({ type: 'root', children: [breakingTree] }, mdOptions) : undefined
 }
 
 const releaseSections = (context) => {
@@ -189,7 +189,6 @@ const baseMessage = (context) => {
         facts,
         markdown: true
       },
-      { text: '---' },
     ],
   }
 }
@@ -197,6 +196,10 @@ const baseMessage = (context) => {
 module.exports = (context) => {
   const sections = releaseSections(context)
   const teamsMessage = baseMessage(context)
+
+  if (sections.bugfixes || sections.features || sections.breaking) {
+    teamsMessage.sections.push({ text: '---' })
+  }
 
   if (sections.bugfixes) {
     teamsMessage.sections.push({ text: '## Bug Fixes' })
