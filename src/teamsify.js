@@ -167,13 +167,27 @@ const baseMessage = (context) => {
   const { nextRelease, lastRelease, commits, options } = context
   const repository = options.repositoryUrl.split('/').pop()
   const { title, imageUrl } = options
-  const facts = [
-    { name: 'Version', value: `${nextRelease.gitTag} (${nextRelease.type})` },
-    { name: 'Commits', value: commits.length }
-  ]
+
+  const facts = []
+
+  facts.push({ name: 'Version', value: `${nextRelease.gitTag} (${nextRelease.type})` })
 
   if (Object.keys(lastRelease).length > 0){
     facts.push({ name: 'Last Release', value: lastRelease.gitTag })
+  }
+
+  facts.push({ name: 'Commits', value: commits.length })
+
+  if (commits.length > 0) {
+    // prettier-ignore
+    const contributors = commits
+      .map(commit => commit.author.email)
+      .reduce(
+        (accumulator, email) => accumulator.add(email.substring(0, email.indexOf('@'))),
+        new Set()
+      )
+
+    facts.push({ name: 'Contributors', value: Array.from(contributors).join(', ') })
   }
 
   return {
