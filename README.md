@@ -7,7 +7,13 @@
 | `verifyConditions` | Check the `webhookUrl` option or `TEAMS_WEBHOOK_URL` variable |
 | `success`          | Send a slack message to notify of a new release.              |
 
-## Prerequisites
+## Installation
+
+```sh
+npm install semantic-release-ms-teams --save-dev
+# or
+yarn add semantic-release-ms-teams --dev
+```
 
 This plugin is using an _incoming webhook_ to notify a teams channel. Here is [some documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#add-an-incoming-webhook-to-a-teams-channel) to create one.
 
@@ -77,3 +83,5 @@ Here are some steps to test the plugin locally:
 - [`node-fetch`](https://www.npmjs.com/package/node-fetch): Send the message to teams
 - [`remark`](https://www.npmjs.com/package/remark): Markdown to JSON
 - [`mdast-util-to-markdown`](https://www.npmjs.com/package/mdast-util-to-markdown): JSON to Markdown
+
+Greatly inspired by [semantic-release-slack-bot](https://github.com/juliuscc/semantic-release-slack-bot).
