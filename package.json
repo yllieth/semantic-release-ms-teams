@@ -1,0 +1,46 @@
+{
+  "name": "semantic-release-ms-teams",
+  "version": "1.0.0",
+  "description": "A plugin for semantic-release which publish release notes in a Microsoft Teams channel",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0",
+    "lint": "eslint . --ext js",
+    "release": "semantic-release",
+    "release:dryRun": "semantic-release --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yllieth/semantic-release-ms-teams.git"
+  },
+  "keywords": [
+    "semantic-release",
+    "plugin",
+    "ms-teams",
+    "release-notes",
+    "webhook"
+  ],
+  "author": "Sylvain RAGOT <sylvnimes@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yllieth/semantic-release-ms-teams/issues"
+  },
+  "homepage": "https://github.com/yllieth/semantic-release-ms-teams#readme",
+  "dependencies": {
+    "mdast-util-to-markdown": "^0.6.5",
+    "node-fetch": "^2.6.1",
+    "remark": "^13.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2"
+  },
+  "peerDependencies": {
+    "semantic-release": ">=17.0.0 <18.0.0"
+  }
+}
