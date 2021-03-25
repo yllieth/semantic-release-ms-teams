@@ -5,5 +5,3 @@ vscode
 # packages
 node_modules
 
-# dev files
-.releaserc.json
