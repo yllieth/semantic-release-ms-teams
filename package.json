@@ -6,8 +6,9 @@
   "scripts": {
     "test": "exit 0",
     "lint": "eslint . --ext js",
-    "release": "semantic-release",
-    "release:dryRun": "semantic-release --dry-run"
+    "release": "standard-version",
+    "semrel": "semantic-release",
+    "semrel:dryRun": "semantic-release --dry-run"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.4.2"
+    "semantic-release": "^17.4.2",
+    "standard-version": "^9.2.0"
   },
   "peerDependencies": {
     "semantic-release": ">=17.0.0 <18.0.0"
