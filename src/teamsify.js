@@ -19,10 +19,10 @@ const mdOptions = {
  * @param context semantic-release plugin context
  * @returns {Object}
  */
-const baseMessage = (context) => {
+const baseMessage = (pluginConfig, context) => {
   const { nextRelease, lastRelease, commits, options } = context
   const repository = options.repositoryUrl.split('/').pop()
-  const { title, imageUrl } = options
+  const { title, imageUrl } = pluginConfig
 
   const facts = []
 
@@ -53,7 +53,7 @@ const baseMessage = (context) => {
     summary: title || 'A new version has been released',
     sections: [
       {
-        activityTitle: `A new version has been released`,
+        activityTitle: title || 'A new version has been released',
         activitySubtitle: repository,
         activityImage: imageUrl || 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png',
         facts,
@@ -109,9 +109,9 @@ const extractSections = (context) => {
   return sections
 }
 
-module.exports = (context) => {
+module.exports = (pluginConfig, context) => {
   const sections = extractSections(context)
-  const teamsMessage = baseMessage(context)
+  const teamsMessage = baseMessage(pluginConfig, context)
 
   if (sections.length > 0) {
     teamsMessage.sections.push({ text: '---' })
