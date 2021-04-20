@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.1.0...v1.2.0) (2021-04-20)
+
+
+### Features
+
+* added the possibility to not have the list of contributors sent with the message ([815686c](https://github.com/yllieth/semantic-release-ms-teams/commit/815686c05a30adfb033bc5ca07d6f922518dc1bb))
+
+
+### Bug Fixes
+
+* use title and imageUrl from plugin config instead semantic-release config ([87b8436](https://github.com/yllieth/semantic-release-ms-teams/commit/87b8436670ab862a927cdceb461f27cfe075c960))
+
+
+### Other
+
+* updated success screenshot to show recent updates ([31d4b24](https://github.com/yllieth/semantic-release-ms-teams/commit/31d4b240a5da399034465c021515c3cf3ea413f5))
+
 ## [1.1.0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.0.0...v1.1.0) (2021-04-15)
 
 
