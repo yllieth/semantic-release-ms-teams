@@ -22,14 +22,15 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is [s
 ```json
 // .releaserc.json
 {
-  "branches": ["master"],
+  "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["semantic-release-ms-teams", {
       "webhookUrl": "...",
       "title": "A new version has been released",
-      "imageUrl": "http://..."
+      "imageUrl": "http://...",
+      "showContributors": false
     }]
   ]
 }
@@ -39,17 +40,20 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is [s
 | --- | --- | --- |
 | `webhookUrl` or `TEAMS_WEBHOOK_URL` | **required**, url | The incoming webhook url of the channel to publish release notes to. |
 | `title` | _optional_, text | The title of the message. Default: _A new version has been released_ |
-| `imageUrl` | _optional_, url | An image displayed in the message, next to the title. The image must be less than 200x200. | 
+| `imageUrl` | _optional_, url | An image displayed in the message, next to the title. The image must be less than 200x200. |
+| `showContributors` | _optional_, boolean | Whether or not the contributors should be displayed in the message. Default: `true` |
 
 ### Notes
-**IMPORTANT**: The `webhookUrl` variable you can use within your plugin configuration is meant to be used only for test purposes.
+- **IMPORTANT**: The `webhookUrl` variable you can use within your plugin configuration is meant to be used only for test purposes.
 Because you don't want to publicly publish this url and do let the world know a way to send messages to your teams channel,
 you will want to use the `TEAMS_WEBHOOK_URL` instead.
 
-The default value for `imageUrl` is <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png" width="30" height="30" style="border-radius: 50%; vertical-align: middle" />
+- The default value for `imageUrl` is <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png" width="30" height="30" style="border-radius: 50%; vertical-align: middle" />
 _https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png_
 
-The message is sent to Teams during the `success` step which is silenced in `dryRun` mode.
+- The list of Contributors is built using the email associated with the commits (only the part before the "@" is kept). This list can be disable (mainly for privacy reasons) 
+
+- The message is sent to Teams during the `success` step which is silenced in `dryRun` mode.
 
 ## Screenshots
 
