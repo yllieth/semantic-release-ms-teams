@@ -22,7 +22,7 @@ const mdOptions = {
 const baseMessage = (pluginConfig, context) => {
   const { nextRelease, lastRelease, commits, options } = context
   const repository = options.repositoryUrl.split('/').pop()
-  const { title, imageUrl } = pluginConfig
+  const { title, imageUrl, showContributors } = pluginConfig
 
   const facts = []
 
@@ -34,7 +34,7 @@ const baseMessage = (pluginConfig, context) => {
 
   facts.push({ name: 'Commits', value: commits.length })
 
-  if (commits.length > 0) {
+  if (commits.length > 0 && (showContributors || showContributors === undefined)) {
     // prettier-ignore
     const contributors = commits
       .map(commit => commit.author.email)
