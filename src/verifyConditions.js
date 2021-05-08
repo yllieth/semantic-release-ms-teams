@@ -3,7 +3,7 @@ const urlPattern = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\
 let webhookUrl = ''
 
 /**
- * A method to verify that the user has given us a slack webhook url to post to
+ * A method to verify that the user has given us a teams webhook url to post to
  */
 module.exports = async (pluginConfig, context) => {
   const { env } = context
