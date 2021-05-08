@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.1-0...v1.2.1) (2021-05-08)
+
+### [1.2.1-0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.0...v1.2.1-0) (2021-05-08)
+
+
+### Bug Fixes
+
+* handled conflict with @semantic-release/git plugin ([fcadfac](https://github.com/yllieth/semantic-release-ms-teams/commit/fcadfacce86fb1c79f21affccd9f121246e04c52)), closes [#20](https://github.com/yllieth/semantic-release-ms-teams/issues/20)
+* success script isnt async ([38b4fca](https://github.com/yllieth/semantic-release-ms-teams/commit/38b4fcad5c22fa0a15f2a1acb690fd318b49b164)), closes [#12](https://github.com/yllieth/semantic-release-ms-teams/issues/12)
+
 ## [1.2.0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.1.0...v1.2.0) (2021-04-20)
 
 
