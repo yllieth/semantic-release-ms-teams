@@ -5,7 +5,7 @@
 | Step               | Description                                                   |
 | ------------------ | ------------------------------------------------------------- |
 | `verifyConditions` | Check the `webhookUrl` option or `TEAMS_WEBHOOK_URL` variable |
-| `success`          | Send a slack message to notify of a new release.              |
+| `success`          | Send a Teams message to notify of a new release.              |
 
 ## Installation
 
@@ -45,6 +45,12 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is
 | `showContributors` | _optional_, boolean | Whether or not the contributors should be displayed in the message. Default: `true` |
 
 ### Notes
+- `webhookUrl` is a property of the config object in `.releaserc.json`, and,
+  `TEAMS_WEBHOOK_URL` is an environment variable. The config object can be
+  useful to try the plugin, but most of the time, production environments
+  prefers environment variables. You can use both, but not in the same time as
+  it does not make sense. If you do define both, the config object overrides
+  the environment variable.
 - **IMPORTANT**: The `webhookUrl` variable you can use within your plugin
 configuration is meant to be used only for test purposes. Because you don't
 want to publicly publish this url and do let the world know a way to send
