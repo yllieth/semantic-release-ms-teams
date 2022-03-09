@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const HttpsProxyAgent = requre('https-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
 const teamsify = require('./teamsify')
 
 /**
