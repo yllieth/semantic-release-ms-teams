@@ -29,6 +29,7 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is
     "@semantic-release/release-notes-generator",
     ["semantic-release-ms-teams", {
       "webhookUrl": "...",
+      "proxyUrl": "...",
       "title": "A new version has been released",
       "imageUrl": "http://...",
       "showContributors": false
@@ -40,21 +41,22 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is
 | Variable | Details | Description | 
 | --- | --- | --- |
 | `webhookUrl` or `TEAMS_WEBHOOK_URL` | **required**, url | The incoming webhook url of the channel to publish release notes to. |
+| `proxyUrl` in ENV: `PROXY_URL`, `http_proxy` or `https_proxy`  | _optional_, text | The URL of a proxy the teams-request has to go through. Useful for business people |
 | `title` | _optional_, text | The title of the message. Default: _A new version has been released_ |
 | `imageUrl` | _optional_, url | An image displayed in the message, next to the title. The image must be less than 200x200. |
 | `showContributors` | _optional_, boolean | Whether or not the contributors should be displayed in the message. Default: `true` |
 
 ### Notes
-- `webhookUrl` is a property of the config object in `.releaserc.json`, and,
-  `TEAMS_WEBHOOK_URL` is an environment variable. The config object can be
+- `webhookUrl` and `proxyUrl` are properties of the config object in `.releaserc.json`, and,
+  `TEAMS_WEBHOOK_URL`, `PROXY_URL`, `http_proxy` and `https_proxy` are environment variables. The config object can be
   useful to try the plugin, but most of the time, production environments
   prefers environment variables. You can use both, but not in the same time as
   it does not make sense. If you do define both, the config object overrides
   the environment variable.
-- **IMPORTANT**: The `webhookUrl` variable you can use within your plugin
+- **IMPORTANT**: The `webhookUrl` and `proxyUrl` variable you can use within your plugin
 configuration is meant to be used only for test purposes. Because you don't
-want to publicly publish this url and do let the world know a way to send
-messages to your teams channel, you will want to use the `TEAMS_WEBHOOK_URL`
+want to publicly publish these url and do let the world know a way to send
+messages to your teams channel, you will want to use the `TEAMS_WEBHOOK_URL` / `PROXY_URL`
 instead.
 
 - The default value for `imageUrl` is <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png" width="30" height="30" style="border-radius: 50%; vertical-align: middle" />
@@ -108,5 +110,6 @@ add the following properties in the object:
 - [`node-fetch`](https://www.npmjs.com/package/node-fetch): Send the message to teams
 - [`remark`](https://www.npmjs.com/package/remark): Markdown to JSON
 - [`mdast-util-to-markdown`](https://www.npmjs.com/package/mdast-util-to-markdown): JSON to Markdown
+- [`https-proxy-agent`](https://www.npmjs.com/package/https-proxy-agent): Send the message over a proxy
 
 Greatly inspired by [semantic-release-slack-bot](https://github.com/juliuscc/semantic-release-slack-bot).
