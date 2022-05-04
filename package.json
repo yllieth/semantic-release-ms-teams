@@ -43,6 +43,6 @@
     "standard-version": "^9.3.2"
   },
   "peerDependencies": {
-    "semantic-release": ">=18.0.0 <19.0.0"
+    "semantic-release": ">=18.0.0 <20.0.0"
   }
 }
