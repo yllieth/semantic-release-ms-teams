@@ -1,5 +1,5 @@
-const fetch = require('node-fetch')
-const teamsify = require('./teamsify')
+import fetch from "node-fetch"
+import teamsify from './teamsify'
 
 /**
  * Handle conflict with @semantic-release/git which causes the message to be sent twice.
@@ -39,7 +39,7 @@ const canNotify = (context) => {
   return true
 }
 
-module.exports = (pluginConfig, context) => {
+const success = (pluginConfig, context) => {
   if (canNotify(context)) {
     const { logger, env } = context
     const { webhookUrl } = pluginConfig
@@ -52,4 +52,6 @@ module.exports = (pluginConfig, context) => {
       .catch((error) => logger.error('An error occurred while sending the message to Microsoft Teams', error))
       .finally(() => { env.HAS_PREVIOUS_EXECUTION = true })
   }
-};
+}
+
+export default success

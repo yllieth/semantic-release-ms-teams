@@ -5,7 +5,7 @@ let webhookUrl = ''
 /**
  * A method to verify that the user has given us a teams webhook url to post to
  */
-module.exports = async (pluginConfig, context) => {
+const verifyConditions = async (pluginConfig, context) => {
   const { env } = context
   const { webhookUrl: webhookUrlOption } = pluginConfig
   const { TEAMS_WEBHOOK_URL: webhookUrlVariable } = env
@@ -20,4 +20,6 @@ module.exports = async (pluginConfig, context) => {
   if (errors.length > 0) {
     throw new Error(errors.join('\n'))
   }
-};
+}
+
+export default verifyConditions

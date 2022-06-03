@@ -1,5 +1,5 @@
-const remark = require('remark')
-const toMarkdown = require('mdast-util-to-markdown')
+import remark from 'remark'
+import { toMarkdown } from "mdast-util-to-markdown"
 
 /**
  * Options passed to toMarkdown() to format the output
@@ -109,7 +109,7 @@ const extractSections = (context) => {
   return sections
 }
 
-module.exports = (pluginConfig, context) => {
+const teamsify = (pluginConfig, context) => {
   const sections = extractSections(context)
   const teamsMessage = baseMessage(pluginConfig, context)
 
@@ -124,3 +124,5 @@ module.exports = (pluginConfig, context) => {
 
   return teamsMessage
 }
+
+export default teamsify()
