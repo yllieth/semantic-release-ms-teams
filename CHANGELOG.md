@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.1...v2.0.0-0) (2022-06-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **dependencies:** since semantic-relase@19 dropped the support of node 15, I did the same in this plugin as I bumped the peerDependency of semantic-release. If you're still using node@15, consider using the version 1.x of the plugin.
+
+### Other
+
+* **dependencies:** update dependencies ([92568c4](https://github.com/yllieth/semantic-release-ms-teams/commit/92568c45fd8242b549e1b5d6a00a6785604f2f37))
+* **readme:** added note about webHookUrl vs. TEAMS_WEBHOOK_URL ([640257d](https://github.com/yllieth/semantic-release-ms-teams/commit/640257d335b41ba70ca808d08007a0ced114ab29))
+* update dependencies ([09b539b](https://github.com/yllieth/semantic-release-ms-teams/commit/09b539bb4c30df22131495d3737e427a00601ba7))
+
 ### [1.2.1](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.1-0...v1.2.1) (2021-05-08)
 
 ### [1.2.1-0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.0...v1.2.1-0) (2021-05-08)
