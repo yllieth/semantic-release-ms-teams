@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-1](https://github.com/yllieth/semantic-release-ms-teams/compare/v2.0.0-0...v2.0.0-1) (2022-06-09)
+
+
+### Other
+
+* changed require to import ([9b52fd0](https://github.com/yllieth/semantic-release-ms-teams/commit/9b52fd0216d471ea7a4dedb626c8ee2f7b1f39eb))
+
 ## [2.0.0-0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.1...v2.0.0-0) (2022-06-03)
 
 
