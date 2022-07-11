@@ -1,4 +1,17 @@
-const verifyConditions = require('./src/verifyConditions');
-const success = require('./src/success');
+const lifecycleVerifyConditions = require('./lib/lifecycle-verify-conditions')
+const lifecycleSuccess = require('./lib/lifecycle-success')
+const canNotify = require('./lib/canNotify')
 
-module.exports = { verifyConditions, success };
+let verified
+const verifyConditions = (pluginConfig, context) => {
+  lifecycleVerifyConditions(pluginConfig, context)
+  verified = true
+}
+
+const success = (pluginConfig, context) => {
+  if (verified && canNotify(context)) {
+    lifecycleSuccess(pluginConfig, context)
+  }
+}
+
+module.exports = { verifyConditions, success }
