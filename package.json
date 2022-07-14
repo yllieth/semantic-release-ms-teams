@@ -4,6 +4,7 @@
   "description": "A plugin for semantic-release which publish release notes in a Microsoft Teams channel",
   "main": "index.js",
   "scripts": {
+    "release": "semantic-release",
     "test": "exit 0"
   },
   "repository": {
