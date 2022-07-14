@@ -10,7 +10,7 @@ const verifyConditions = (pluginConfig, context) => {
 
 const success = (pluginConfig, context) => {
   if (verified && canNotify(context)) {
-    lifecycleSuccess(pluginConfig, context)
+    await lifecycleSuccess(pluginConfig, context)
   }
 }
 
