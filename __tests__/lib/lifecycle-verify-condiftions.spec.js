@@ -1,3 +1,5 @@
+/* eslint-disable jest/no-conditional-expect */
+
 const lifecycleVerifyConditions = require('../../lib/lifecycle-verify-conditions')
 
 describe('lifecycleVerifyConditions', () => {
@@ -58,12 +60,10 @@ describe('lifecycleVerifyConditions', () => {
     // arrange
     pluginConfig.webhookUrl = 'http://example.com'
 
-    try {
-      // act
-      lifecycleVerifyConditions(pluginConfig, context)
-    } catch (e) {
-      // assume
-      fail('Should no go there')
-    }
+    // act
+    lifecycleVerifyConditions(pluginConfig, context)
+
+    // assert
+    expect(true).toBe(true)
   })
 })

@@ -90,9 +90,7 @@ describe('lifecycleSuccess', () => {
   })
   it('does not notify Teams when "teamsify" throw an error', async () => {
     // arrange
-    const url = 'http://example.com'
-    const teamsNotification = { foo: 'bar' }
-    context.env.TEAMS_WEBHOOK_URL = url
+    context.env.TEAMS_WEBHOOK_URL = 'http://example.com'
     context.options.dryRun = true
     pluginConfig.notifyInDryRun = true
     global.fetch = jest.fn(() => Promise.resolve())
