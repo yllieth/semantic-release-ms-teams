@@ -3,7 +3,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* * added engine restriction to work on node 18+, npm 8+, yarn 2+ (dropping support of node 15)
+* added engine restriction to work on node 18+, npm 8+, yarn 2+ (dropping support of node 15)
 * upgraded peerDependency over semantic-release to support v19
 * rewrite for v2 (#29)
 
