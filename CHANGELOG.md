@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/yllieth/semantic-release-ms-teams/compare/v2.0.0...v2.0.1) (2022-08-03)
+
+
+### Bug Fixes
+
+* trigger a new release ([#31](https://github.com/yllieth/semantic-release-ms-teams/issues/31)) ([66ec7f0](https://github.com/yllieth/semantic-release-ms-teams/commit/66ec7f0db0400c8a6a686a898dd16d687475ba1a))
+
 ## [2.0.0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.1...v2.0.0) (2022-08-03)
 
 
