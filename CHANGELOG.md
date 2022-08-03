@@ -1,3 +1,27 @@
+## [2.0.0](https://github.com/yllieth/semantic-release-ms-teams/compare/v1.2.1...v2.0.0) (2022-08-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* * added engine restriction to work on node 18+, npm 8+, yarn 2+ (dropping support of node 15)
+* upgraded peerDependency over semantic-release to support v19
+* rewrite for v2 (#29)
+
+### Features
+
+* rewrite for v2 ([#29](https://github.com/yllieth/semantic-release-ms-teams/issues/29)) ([7d9d432](https://github.com/yllieth/semantic-release-ms-teams/commit/7d9d4320dd47319f88df217f0fd2495eda515b94))
+* rewrite for v2 ([#30](https://github.com/yllieth/semantic-release-ms-teams/issues/30)) ([9434882](https://github.com/yllieth/semantic-release-ms-teams/commit/943488234e97b2ca4995c913174de8a7cbd507e8))
+
+
+### Documentation
+
+* **readme:** added note about webHookUrl vs. TEAMS_WEBHOOK_URL ([640257d](https://github.com/yllieth/semantic-release-ms-teams/commit/640257d335b41ba70ca808d08007a0ced114ab29))
+
+
+### Miscellaneous Chores
+
+* update dependencies ([09b539b](https://github.com/yllieth/semantic-release-ms-teams/commit/09b539bb4c30df22131495d3737e427a00601ba7))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
