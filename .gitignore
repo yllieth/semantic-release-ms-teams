@@ -7,4 +7,4 @@ node_modules
 
 # dev files
 coverage
-.releaserc.json
+.secrets

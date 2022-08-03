@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-ms-teams",
-  "version": "2.0.0-alpha.0",
+  "version": "1.2.1",
   "description": "A plugin for semantic-release which publish release notes in a Microsoft Teams channel",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,14 @@
     "url": "https://github.com/yllieth/semantic-release-ms-teams/issues"
   },
   "homepage": "https://github.com/yllieth/semantic-release-ms-teams#readme",
+  "private": true,
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "CHANGELOG.md",
+    "package.json",
+    "package-lock.json"
+  ],
   "engines": {
     "node": ">=18",
     "npm": ">7",
@@ -36,6 +44,13 @@
     "remark": "^14.0.2"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
     "eslint": "^8.20.0",
     "eslint-plugin-fetch": "^0.0.1",
     "eslint-plugin-jest": "^26.7.0",
