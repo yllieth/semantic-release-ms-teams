@@ -35,6 +35,7 @@ jobs:
       - run: npm ci
       - run: npm run release -- --dry-run
         env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
 
@@ -50,5 +51,6 @@ jobs:
       - run: npm ci
       - run: npm run release
         env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
