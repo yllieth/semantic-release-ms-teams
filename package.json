@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-ms-teams",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A plugin for semantic-release which publish release notes in a Microsoft Teams channel",
   "main": "index.js",
   "scripts": {

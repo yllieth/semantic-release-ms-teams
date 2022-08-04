@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/yllieth/semantic-release-ms-teams/compare/v2.0.1...v2.0.2) (2022-08-04)
+
+
+### Bug Fixes
+
+* **ci:** publish on npm registry too ([#32](https://github.com/yllieth/semantic-release-ms-teams/issues/32)) ([9736752](https://github.com/yllieth/semantic-release-ms-teams/commit/97367522fc7cc083f2be269a7f318711b1bc6ed6))
+
 ## [2.0.1](https://github.com/yllieth/semantic-release-ms-teams/compare/v2.0.0...v2.0.1) (2022-08-03)
 
 
