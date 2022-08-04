@@ -26,7 +26,6 @@
     "url": "https://github.com/yllieth/semantic-release-ms-teams/issues"
   },
   "homepage": "https://github.com/yllieth/semantic-release-ms-teams#readme",
-  "private": true,
   "files": [
     "index.js",
     "lib/*.js",
