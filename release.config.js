@@ -58,9 +58,9 @@ const GITHUB = [
 const GIT = '@semantic-release/git'
 
 // Publishes release note in a Teams channel (specified in the repository's secrets)
-// const TEAMS = 'semantic-release-ms-teams'
+const TEAMS = 'semantic-release-ms-teams'
 
 module.exports = {
   branches: ['main', { name: 'next', prerelease: true }],
-  plugins: [COMMIT_ANALYZER, RELEASE_NOTES_GENERATOR, CHANGELOG, NPM, GITHUB, GIT /*, TEAMS */],
+  plugins: [COMMIT_ANALYZER, RELEASE_NOTES_GENERATOR, CHANGELOG, NPM, GITHUB, GIT, TEAMS],
 }
