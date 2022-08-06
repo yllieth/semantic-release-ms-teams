@@ -33,6 +33,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
+      - run: npm link
+      - run: npm link semantic-release-ms-teams
       - run: npm run release -- --dry-run
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN }}
@@ -49,6 +51,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
+      - run: npm link
+      - run: npm link semantic-release-ms-teams
       - run: npm run release
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN }}
