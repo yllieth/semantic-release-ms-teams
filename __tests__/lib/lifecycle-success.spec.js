@@ -6,6 +6,9 @@ jest.mock('node-fetch-commonjs')
 const teamsify = require('../../lib/teamsify')
 jest.mock('../../lib/teamsify')
 
+const getUrl = require('../../lib/getUrl')
+jest.mock('../../lib/getUrl')
+
 describe('lifecycleSuccess', () => {
   let pluginConfig
   let context
@@ -23,14 +26,13 @@ describe('lifecycleSuccess', () => {
         error: jest.fn(),
       },
     }
+    getUrl.mockImplementation(() => 'https://example.com')
   })
 
-  it('notifies Teams successfully using the URL from the config', async () => {
+  it('notifies Teams successfully', async () => {
     // arrange
-    const url = 'http://example.com'
-    const teamsNotification = { foo: 'bar' }
-    pluginConfig.webhookUrl = url
     context.options.dryRun = false
+    const teamsNotification = { foo: 'bar' }
     fetch.mockImplementation(() => Promise.resolve())
     teamsify.mockImplementation(() => teamsNotification)
 
@@ -39,53 +41,9 @@ describe('lifecycleSuccess', () => {
     await result
 
     // assert
+    expect(getUrl).toHaveBeenCalledWith(pluginConfig, context)
     expect(teamsify).toHaveBeenCalledWith(pluginConfig, context, false)
-    expect(fetch).toHaveBeenCalledWith(url, {
-      method: 'post',
-      body: JSON.stringify(teamsNotification),
-      headers: { 'Content-Type': 'application/json' },
-    })
-    expect(context.logger.log).toHaveBeenCalledWith('Message sent to Microsoft Teams')
-    // expect(context.env.HAS_PREVIOUS_EXECUTION).toBe(true)
-  })
-  it('notifies Teams successfully using the URL from the environment variables', async () => {
-    // arrange
-    const url = 'http://example.com'
-    const teamsNotification = { foo: 'bar' }
-    context.env.TEAMS_WEBHOOK_URL = url
-    context.options.dryRun = false
-    fetch.mockImplementation(() => Promise.resolve())
-    teamsify.mockImplementation(() => teamsNotification)
-
-    // act
-    const result = await lifecycleSuccess(pluginConfig, context)
-    await result
-
-    // assert
-    expect(teamsify).toHaveBeenCalledWith(pluginConfig, context, false)
-    expect(fetch).toHaveBeenCalledWith(url, {
-      method: 'post',
-      body: JSON.stringify(teamsNotification),
-      headers: { 'Content-Type': 'application/json' },
-    })
-    expect(context.logger.log).toHaveBeenCalledWith('Message sent to Microsoft Teams')
-    // expect(context.env.HAS_PREVIOUS_EXECUTION).toBe(true)
-  })
-  it('uses the URL from the plugin config when both are defined', async () => {
-    // arrange
-    const teamsNotification = { foo: 'bar' }
-    pluginConfig.webhookUrl = 'http://example-a.com'
-    context.env.TEAMS_WEBHOOK_URL = 'http://example-b.com'
-    context.options.dryRun = false
-    fetch.mockImplementation(() => Promise.resolve())
-    teamsify.mockImplementation(() => teamsNotification)
-
-    // act
-    const result = await lifecycleSuccess(pluginConfig, context)
-    await result
-
-    // assert
-    expect(fetch).toHaveBeenCalledWith('http://example-a.com', {
+    expect(fetch).toHaveBeenCalledWith('https://example.com', {
       method: 'post',
       body: JSON.stringify(teamsNotification),
       headers: { 'Content-Type': 'application/json' },
@@ -93,7 +51,6 @@ describe('lifecycleSuccess', () => {
   })
   it('does not notify Teams when "teamsify" throw an error', async () => {
     // arrange
-    context.env.TEAMS_WEBHOOK_URL = 'http://example.com'
     context.options.dryRun = true
     pluginConfig.notifyInDryRun = true
     fetch.mockImplementation(() => Promise.resolve())
@@ -106,6 +63,7 @@ describe('lifecycleSuccess', () => {
     await result
 
     // assert
+    expect(getUrl).toHaveBeenCalledWith(pluginConfig, context)
     expect(teamsify).toHaveBeenCalledWith(pluginConfig, context, true)
     expect(context.logger.error).toHaveBeenNthCalledWith(1, 'An error occurred while parsing the release notes.')
     expect(context.logger.error).toHaveBeenNthCalledWith(2, 'teamsify error')
@@ -113,9 +71,7 @@ describe('lifecycleSuccess', () => {
   })
   it('handles an error while notifying Teams', async () => {
     // arrange
-    const url = 'http://example.com'
     const teamsNotification = { foo: 'bar' }
-    context.env.TEAMS_WEBHOOK_URL = url
     context.options.dryRun = false
     fetch.mockImplementation(() => Promise.reject('Failed to fetch'))
     teamsify.mockImplementation(() => teamsNotification)
@@ -126,7 +82,7 @@ describe('lifecycleSuccess', () => {
 
     // assert
     expect(teamsify).toHaveBeenCalledWith(pluginConfig, context, false)
-    expect(fetch).toHaveBeenCalledWith(url, {
+    expect(fetch).toHaveBeenCalledWith('https://example.com', {
       method: 'post',
       body: JSON.stringify(teamsNotification),
       headers: { 'Content-Type': 'application/json' },
