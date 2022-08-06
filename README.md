@@ -39,13 +39,14 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is
 }
 ```
 
-| Variable                            | Details             | Description                                                                                                        | 
-|-------------------------------------|---------------------|--------------------------------------------------------------------------------------------------------------------|
-| `webhookUrl` or `TEAMS_WEBHOOK_URL` | **required**, url   | The incoming webhook url of the channel to publish release notes to.                                               |
-| `title`                             | _optional_, text    | The title of the message. Default: _A new version has been released_                                               |
-| `imageUrl`                          | _optional_, url     | An image displayed in the message, next to the title. The image must be less than 200x200.                         |
-| `showContributors`                  | _optional_, boolean | Whether or not the contributors should be displayed in the message. Default: `true`                                |
-| `notifyInDryRun`                    | _optional_, boolean | Whether or not the release notes will be send to Teams when semantic-release runs in dry-run mode. Default: `true` |
+| Variable                                         | Details             | Description                                                                                                                   | 
+|--------------------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `webhookUrl` or `TEAMS_WEBHOOK_URL`              | **required**, url   | The incoming webhook url of the channel to publish release notes to.                                                          |
+| `webhookUrlDryRun` or `TEAMS_WEBHOOK_URL_DRYRUN` | _optional_, url     | Similar to `webhookUrl` or `TEAMS_WEBHOOK_URL`, but will be used in dryRun mode. Default: `webhookUrl` or `TEAMS_WEBHOOK_URL` |
+| `title`                                          | _optional_, text    | The title of the message. Default: _A new version has been released_                                                          |
+| `imageUrl`                                       | _optional_, url     | An image displayed in the message, next to the title. The image must be less than 200x200.                                    |
+| `showContributors`                               | _optional_, boolean | Whether or not the contributors should be displayed in the message. Default: `true`                                           |
+| `notifyInDryRun`                                 | _optional_, boolean | Whether or not the release notes will be send to Teams when semantic-release runs in dry-run mode. Default: `true`            |
 
 ### Notes
 - `webhookUrl` is a property of the config object in `.releaserc.json`, and,
@@ -54,18 +55,22 @@ This plugin is using an _incoming webhook_ to notify a teams channel. Here is
   prefers environment variables. You can use both, but not in the same time as
   it does not make sense. If you do define both, the config object overrides
   the environment variable.
-- 
+
 - **IMPORTANT**: The `webhookUrl` variable you can use within your plugin
   configuration is meant to be used only for test purposes. Because you don't
   want to publicly publish this url and do let the world know a way to send
   messages to your teams channel, you will want to use the `TEAMS_WEBHOOK_URL`
   instead.
 
+- When in dry-run mode, here are the order of considered urls:
+  `webhookUrlDryRun`, `TEAMS_WEBHOOK_URL_DRY_RUN`, `webhookUrl`,
+  `TEAMS_WEBHOOK_URL`
+
 - The default value for `imageUrl` is <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png" width="30" height="30" style="border-radius: 50%; vertical-align: middle" />
   _https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gitlab_meaningful_logo.svg/144px-Gitlab_meaningful_logo.svg.png_
 
 - The list of Contributors is built using the email associated with the commits
-  (only the part before the "@" is kept). This list can be disable (mainly for
+  (only the part before the "@" is kept). This list can be disabled (mainly for
   privacy reasons).
 
 - The official `@semantic-release/git` plugin may cause a second message to be
@@ -102,5 +107,7 @@ Here are some steps to test the plugin locally:
 
 - [`remark`](https://www.npmjs.com/package/remark): Markdown to JSON
 - [`mdast-util-to-markdown`](https://www.npmjs.com/package/mdast-util-to-markdown): JSON to Markdown
+- [`node-fetch-commonjs`](https://www.npmjs.com/package/node-fetch-commonjs): As fetch isn't in NodeJS 16, and 
+  semantic-release doesn't support ES modules. These 2 assertions are subject to evolutions.
 
 Greatly inspired by [semantic-release-slack-bot](https://github.com/juliuscc/semantic-release-slack-bot) ... Thanks ;)
