@@ -1,5 +1,8 @@
 const lifecycleSuccess = require('../../lib/lifecycle-success')
 
+const fetch = require('node-fetch-commonjs')
+jest.mock('node-fetch-commonjs')
+
 const teamsify = require('../../lib/teamsify')
 jest.mock('../../lib/teamsify')
 
@@ -28,7 +31,7 @@ describe('lifecycleSuccess', () => {
     const teamsNotification = { foo: 'bar' }
     pluginConfig.webhookUrl = url
     context.options.dryRun = false
-    global.fetch = jest.fn(() => Promise.resolve())
+    fetch.mockImplementation(() => Promise.resolve())
     teamsify.mockImplementation(() => teamsNotification)
 
     // act
@@ -51,7 +54,7 @@ describe('lifecycleSuccess', () => {
     const teamsNotification = { foo: 'bar' }
     context.env.TEAMS_WEBHOOK_URL = url
     context.options.dryRun = false
-    global.fetch = jest.fn(() => Promise.resolve())
+    fetch.mockImplementation(() => Promise.resolve())
     teamsify.mockImplementation(() => teamsNotification)
 
     // act
@@ -74,7 +77,7 @@ describe('lifecycleSuccess', () => {
     pluginConfig.webhookUrl = 'http://example-a.com'
     context.env.TEAMS_WEBHOOK_URL = 'http://example-b.com'
     context.options.dryRun = false
-    global.fetch = jest.fn(() => Promise.resolve())
+    fetch.mockImplementation(() => Promise.resolve())
     teamsify.mockImplementation(() => teamsNotification)
 
     // act
@@ -93,7 +96,7 @@ describe('lifecycleSuccess', () => {
     context.env.TEAMS_WEBHOOK_URL = 'http://example.com'
     context.options.dryRun = true
     pluginConfig.notifyInDryRun = true
-    global.fetch = jest.fn(() => Promise.resolve())
+    fetch.mockImplementation(() => Promise.resolve())
     teamsify.mockImplementation(() => {
       throw 'teamsify error'
     })
@@ -114,7 +117,7 @@ describe('lifecycleSuccess', () => {
     const teamsNotification = { foo: 'bar' }
     context.env.TEAMS_WEBHOOK_URL = url
     context.options.dryRun = false
-    global.fetch = jest.fn(() => Promise.reject('Failed to fetch'))
+    fetch.mockImplementation(() => Promise.reject('Failed to fetch'))
     teamsify.mockImplementation(() => teamsNotification)
 
     // act

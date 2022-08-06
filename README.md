@@ -19,10 +19,6 @@ yarn add semantic-release-ms-teams --dev
 This plugin is using an _incoming webhook_ to notify a teams channel. Here is
 [some documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#add-an-incoming-webhook-to-a-teams-channel) to create one.
 
-Also note that this package requires node 18 for the following 2 reasons:
-- the upgrade to semantic-release 19 as a peerDependency caused the requirement of node 16
-- the use of the native version of fetchAPI requires node 18
-
 ## Usage
 
 ```json
@@ -58,6 +54,7 @@ Also note that this package requires node 18 for the following 2 reasons:
   prefers environment variables. You can use both, but not in the same time as
   it does not make sense. If you do define both, the config object overrides
   the environment variable.
+- 
 - **IMPORTANT**: The `webhookUrl` variable you can use within your plugin
   configuration is meant to be used only for test purposes. Because you don't
   want to publicly publish this url and do let the world know a way to send
@@ -70,9 +67,6 @@ Also note that this package requires node 18 for the following 2 reasons:
 - The list of Contributors is built using the email associated with the commits
   (only the part before the "@" is kept). This list can be disable (mainly for
   privacy reasons).
-
-- The message is sent to Teams during the `success` step which is silenced in
-  `dryRun` mode.
 
 - The official `@semantic-release/git` plugin may cause a second message to be
   sent (because the plugin potentially adds a commit on the current branch, to
@@ -95,13 +89,6 @@ Here are some steps to test the plugin locally:
   git clone git@gitlab-ncsa.ubisoft.org:sragot/semantic-release-ms-teams.git
   cd semantic-release-ms-teams
   npm install
-  ```
-- add a `.releaserc.json` file at the project's root, copy the code from the
-  [Usage](#usage) section in this new file using the `webhookUrl` property, and
-  add the following properties in the object:
-  ```
-  "ci": false,
-  "dryRun": true,
   ```
 - create a personal access token in github, then `export GH_TOKEN=...`
 - run `semantic-release` locally safely:
