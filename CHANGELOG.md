@@ -1,3 +1,21 @@
+## [2.1.0](https://github.com/yllieth/semantic-release-ms-teams/compare/v2.0.2...v2.1.0) (2022-08-06)
+
+
+### Features
+
+* added webhookUrlDryRun option and TEAMS_WEBHOOK_URL_DRYRUN variable ([316518f](https://github.com/yllieth/semantic-release-ms-teams/commit/316518f50317d4c34ea17ac8259b16ecc2c9f86c))
+
+
+### Miscellaneous Chores
+
+* **dependencies:** downgraded required node version from 18 to 16 ([251612f](https://github.com/yllieth/semantic-release-ms-teams/commit/251612fb638c3b36fb448d6b6073654c7af0d4b3))
+* **dependencies:** upgraded eslint to its latest 8.21.0 ([a2b6f5e](https://github.com/yllieth/semantic-release-ms-teams/commit/a2b6f5e482593fbe5ffa509de514f1f2da6f9602))
+
+
+### Continuous Integration
+
+* **semantic-release:** added semantic-release-ms-teams in the pipeline ([798260d](https://github.com/yllieth/semantic-release-ms-teams/commit/798260df598cafe61b65347b9f3a3bb3db3115dc))
+
 ## [2.0.2](https://github.com/yllieth/semantic-release-ms-teams/compare/v2.0.1...v2.0.2) (2022-08-04)
 
 
