@@ -29,7 +29,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -45,7 +45,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -61,7 +61,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -77,7 +77,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -93,7 +93,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -120,7 +120,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -136,7 +136,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -152,7 +152,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
@@ -168,7 +168,7 @@ describe('lifecycleVerifyConditions', () => {
     } catch (e) {
       // assert
       expect(e.name).toBe('AggregateError')
-      expect(e._errors[0].message).toBe('Invalid WebHook URL')
+      expect(e.errors[0].message).toBe('Invalid WebHook URL')
     }
 
     // assume
